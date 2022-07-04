@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import {
   Checkbox,
   IconButton,
@@ -8,12 +9,14 @@ import {
 import DeleteIcon from "@mui/icons-material/Delete";
 
 export function Task() {
+  const taskTitle = useSelector((state) => state.newValue);
+
   return (
     <ListItem>
       <ListItemIcon>
         <Checkbox />
       </ListItemIcon>
-      <ListItemText primary="texto" />
+      <ListItemText primary={taskTitle} />
       <IconButton>
         <DeleteIcon />
       </IconButton>
