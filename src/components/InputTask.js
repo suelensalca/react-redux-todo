@@ -1,15 +1,25 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Button, TextField } from "@mui/material";
-import { addTask } from "../actions";
+import { actions } from "../actions";
+
+let i = 2;
 
 export function InputTask() {
+  const [value, setValue] = useState("");
+
   const dispatch = useDispatch();
 
-  let [value, setValue] = useState("");
+  const addTask = (e) => {
+    e.preventDefault();
+
+    const task = { id: i++, value };
+
+    dispatch(actions.add(task));
+  };
 
   return (
-    <form id="inputForm" onSubmit={() => dispatch(addTask(value))}>
+    <form id="inputForm" onSubmit={addTask}>
       <TextField
         id="input"
         label="type here"
