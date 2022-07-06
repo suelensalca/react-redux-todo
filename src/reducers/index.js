@@ -1,15 +1,8 @@
-const initialState = {
-  newValue: "hehe",
-};
+import { combineReducers } from "redux";
+import { taskReducer } from "./task.reducer";
 
-const taskReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case "ADD":
-      return {
-        newValue: action.newValue,
-      };
-    default:
-      return state;
-  }
-};
-export default taskReducer;
+const reducers = combineReducers({
+  taskReducer,
+});
+
+export { reducers };
