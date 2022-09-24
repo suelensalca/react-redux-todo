@@ -16,15 +16,17 @@ export function InputTask() {
     const task = { id: i++, value };
 
     dispatch(actions.add(task));
+    setValue("");
   };
 
   return (
     <form id="inputForm" onSubmit={addTask}>
       <TextField
         id="input"
-        label="type here"
+        label="Digite aqui"
         variant="outlined"
         color="primary"
+        value={value}
         sx={{ width: "70%", m: "6px 0" }}
         onChange={(e) => setValue(e.target.value)}
       />
